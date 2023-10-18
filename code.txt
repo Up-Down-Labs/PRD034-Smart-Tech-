@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <title>Save Web Form Data to Spreadsheets - Contact Form</title> -->
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+        <script>
+        function SubForm (){
+            $.ajax({
+                url:"https://api.apispreadsheets.com/data/cTY6ZDvxGddh1mN5/",
+                type:'post',
+                data:$("#myForm").serializeArray(),
+                success: function(){
+                alert("Form Data Submitted :)")
+                const inputs = document.querySelectorAll('#your_ame, #date, #phone_No, #Email, #Comments, #ac, #fq, #Am, #Os, #Sb');
+
+                    inputs.forEach(input => {
+                        input.value = '';
+                        $('input[type="checkbox"]').prop('checked', false);
+                });
+                $('input[type="checkbox"]').val('');
+                },
+                error: function(){
+                alert("There was an error :(")
+                }
+            });
+        }
+        </script>
+    </head>
+    <body>
+        <form id="myForm">
+            <h1 style="text-align:center;">EVOLVE BACK</h1>
+            <h4 style="text-align:center;">RESORTS</h4>
+
+            <hr style="width: 60%;">
+
+            <h2 style="background-color:black;color:white;text-align:center;padding:8px">CUSTOMER FEEDBACK FORM</h2>
+
+            <p>Dear customer,<br>Thank you for choosing Evolve Back.<br>Your visit is a motivation for us.Kindly help us to improve our service delivery.<br><br> 
+
+            <label>Your Name:</label>
+            <input type="text" name="Your Name" id="your_ame"><label>Date:</label>
+            <input type="date" id="date" name="Date">
+            <br><br>
+            <label>Phone No:</label><input type="phone no" id="phone_No" name="Phone No">
+            <label>Email:</label>
+            <input type="email" name="Email" id="Email"><br><br>
+            How satisfied are you with each of the following aspects of our services?<br>Please rank us by marking tick in the  box that truly reflects your satisfaction level. <br><br>
+
+
+            <table>
+
+            <th style="background-color:black;color:white;padding:8px"></th>
+            <th style="background-color:black;color:white;padding:8px">EXCELLENT</th>
+            <th style="background-color:black;color:white;padding:8px">GOOD</th>
+            <th style="background-color:black;color:white;padding:8px">MEDIUM</th>
+            <th style="background-color:black;color:white;padding:8px">POOR</th>
+            <th style="background-color:black;color:white;padding:8px">VERY BAD</th>
+            <tr>
+            <td>Auditorium cleanliness</td>
+            <td style="text-align:center;"><input type="checkbox" id="ac" name="Auditorium cleanliness" value="EXCELLENT"></td>
+            <td style="text-align:center;"><input type="checkbox" id="ac" name="Auditorium cleanliness" value="GOOD"></td> 
+            <td style="text-align:center;"><input type="checkbox" id="ac" name="Auditorium cleanliness" value="MEDIUM"></td> 
+            <td style="text-align:center;"><input type="checkbox" id="ac" name="Auditorium cleanliness" value="POOR"></td>
+            <td style="text-align:center;"><input type="checkbox" id="ac" name="Auditorium cleanliness" value="VERY BAD"></td>
+            </tr>
+            <tr>
+            <td>Food quality</td>
+            <td style="text-align:center;"><input type="checkbox" id="fq" name="Food quality" value="EXCELLENT"></td>
+            <td style="text-align:center;"><input type="checkbox" id="fq" name="Food quality" value="GOOD"></td> 
+            <td style="text-align:center;"><input type="checkbox" id="fq" name="Food quality" value="MEDIUM"></td> 
+            <td style="text-align:center;"><input type="checkbox" id="fq" name="Food quality" value="POOR"></td>
+            <td style="text-align:center;"><input type="checkbox" id="fq" name="Food quality" value="VERY BAD"></td>
+            </tr>
+            <tr>
+            <td>Ambiance of the room</td>
+            <td style="text-align:center;"><input type="checkbox" id="Am" name="Ambiance of the room" value="EXCELLENT"></td>
+            <td style="text-align:center;"><input type="checkbox" id="Am" name="Ambiance of the room" value="GOOD"></td> 
+            <td style="text-align:center;"><input type="checkbox" id="Am" name="Ambiance of the room" value="MEDIUM"></td> 
+            <td style="text-align:center;"><input type="checkbox" id="Am" name="Ambiance of the room" value="POOR"></td>
+            <td style="text-align:center;"><input type="checkbox" id="Am" name="Ambiance of the room" value="VERY BAD"></td>
+            </tr>
+            <tr>
+            <td>Staff behaviour</td>
+            <td style="text-align:center;"><input type="checkbox" id="Sb" name="Staff behaviour" value="EXCELLENT"></td>
+            <td style="text-align:center;"><input type="checkbox" id="Sb" name="Staff behaviour" value="GOOD"></td> 
+            <td style="text-align:center;"><input type="checkbox" id="Sb" name="Staff behaviour" value="MEDIUM"></td> 
+            <td style="text-align:center;"><input type="checkbox" id="Sb" name="Staff behaviour" value="POOR"></td>
+            <td style="text-align:center;"><input type="checkbox" id="Sb" name="Staff behaviour" value="VERY BAD"></td>
+            </tr>
+            <tr>
+            <td>Overall service delivery</td>
+            <td style="text-align:center;"><input type="checkbox" id="Os" name="Overall service delivery" value="EXCELLENT"></td>
+            <td style="text-align:center;"><input type="checkbox" id="Os" name="Overall service delivery" value="GOOD"></td> 
+            <td style="text-align:center;"><input type="checkbox" id="Os" name="Overall service delivery" value="MEDIUM"></td> 
+            <td style="text-align:center;"><input type="checkbox" id="Os" name="Overall service delivery" value="POOR"></td>
+            <td style="text-align:center;"><input type="checkbox" id="Os" name="Overall service delivery" value="VERY BAD"></td>
+            </tr>
+
+            </table>
+
+            <br><br>
+            Comments or suggestions
+            <br>
+
+            <input style="border-top:none;border-right:none;border-left:none;" name="Comments" id="Comments" type="textarea" size="80"><br>
+            <input style="border-top:none;border-right:none;border-left:none;" name="Comments" id="Comments" type="textarea" size="80"><br>
+            <input style="border-top:none;border-right:none;border-left:none;" name="Comments" id="Comments" type="textarea" size="80"><br>
+            <input style="border-top:none;border-right:none;border-left:none;" name="Comments" id="Comments" type="textarea" size="80">
+            </p>
+
+        </form>
+        <div style="text-align:center;"><button style="background-color:green;border:none;padding:10px;color:white;" id="btn" type="submit" onclick="SubForm()">SUBMIT</button></div>
+    </body>
+</html>
